@@ -1,7 +1,4 @@
 # Markdown Editor Tutorial
-
-![screenshot](./doc/screenshot.png)
-
 A tutorial for building a beautiful Markdown editor
 
 ## Stack
