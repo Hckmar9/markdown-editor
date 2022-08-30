@@ -36,7 +36,7 @@
     "typecheck": "npm run typecheck-main && npm run typecheck-preload && npm run typecheck-renderer"
   },
   "browserslist": [
-    "Chrome 91"
+    "Chrome 104"
   ],
   "simple-git-hooks": {
     "pre-commit": "npx lint-staged",
