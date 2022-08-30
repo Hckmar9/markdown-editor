@@ -1,24 +1,22 @@
 {
   "extends": [
     "config:base",
-    "group:allNonMajor",
     ":semanticCommits",
-    ":automergeTypes",
-    ":disableDependencyDashboard",
-    ":pinVersions",
-    ":semanticCommitType(deps)",
-    ":onlyNpm",
-    ":label(dependencies)",
-    "schedule:weekly"
+    ":automergeTypes"
+  ],
+  "labels": [
+    "dependencies"
   ],
   "baseBranches": [
     "main"
   ],
   "bumpVersion": "patch",
-  "gitNoVerify": [
-    "commit",
-    "push"
-  ],
+  "patch": {
+    "automerge": true
+  },
+  "minor": {
+    "automerge": true
+  },
   "packageRules": [
     {
       "packageNames": [
@@ -34,10 +32,29 @@
       "semanticCommitType": "build"
     },
     {
-      "matchPackageNames": [
-        "electron"
+      "matchSourceUrlPrefixes": [
+        "https://github.com/vitejs/vite/"
       ],
-      "separateMajorMinor": false
+      "groupName": "Vite monorepo packages",
+      "automerge": false
+    },
+    {
+      "matchPackagePatterns": [
+        "^@typescript-eslint",
+        "^eslint"
+      ],
+      "automerge": true,
+      "groupName": "eslint"
+    },
+    {
+      "matchPackageNames": [
+        "electron",
+        "electron-releases",
+        "spectron"
+      ],
+      "separateMajorMinor": false,
+      "groupName": "electron"
     }
-  ]
+  ],
+  "rangeStrategy": "bump"
 }
